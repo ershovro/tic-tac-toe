@@ -6,4 +6,9 @@ const Square = ({value = null, onClick = f => f}) =>
       {value}
    </div>
 
+Object.defineProperty(Square,'SQUARE_SIZE', {
+   value: 34,
+   writable: false
+})
+
 export default Square;
