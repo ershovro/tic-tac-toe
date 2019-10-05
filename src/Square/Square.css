@@ -1,0 +1,17 @@
+.square { 
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+       
+  height: 34px;
+  width: 34px;
+  
+  background: #fff;
+  
+  outline: 1px solid #999;
+ 
+  font-size: 24px;
+  font-weight: bold;
+  
+  /*box-sizing: border-box;*/
+}

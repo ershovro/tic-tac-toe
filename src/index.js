@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-//import Game from './Game'
+import Game from './Game'
 
-window.React = React;
+window.React = React
 
 
 ReactDom.render(
-   <h1>Ready? Go! </h1>,
+   <Game/>,
    document.getElementById('root')
 )
