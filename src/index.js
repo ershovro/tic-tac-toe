@@ -6,6 +6,6 @@ window.React = React
 
 
 ReactDom.render(
-   <Game/>,
+   <Game size={3}/>,
    document.getElementById('root')
 )
