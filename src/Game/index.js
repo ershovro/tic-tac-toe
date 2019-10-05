@@ -7,11 +7,11 @@ export default class Game extends React.Component {
       super(props);
    }
    
-   render() {
+   render() {/* <span className="game-status"> Next player: X </span>*/
       return (
          <div className="game">
             <div className="game-boardContainer">
-               <span className="game-status"> Next player: X </span>
+              
                <Board className="game-board" size={3}/>
             </div>
             <div className="game-info">
