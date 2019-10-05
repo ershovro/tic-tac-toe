@@ -2,6 +2,26 @@ import React from 'react'
 import Board from '../Board'
 import './Game.css'
 
+function calculateWinner(squares) {
+   const lines = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+   ];
+   for (let i = 0; i < lines.length; i++) {
+      const [a, b, c] = lines[i];
+      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+         return squares[a];
+      }
+   }
+   return null;
+}
+
 export default class Game extends React.Component {
    constructor(props) {
       super(props);
@@ -10,10 +30,13 @@ export default class Game extends React.Component {
          xIsNext: true
       };
       this.handleSquareClick = this.handleSquareClick.bind(this);
+      this.getGameStatus = this.getGameStatus.bind(this);
    }
 
    handleSquareClick(squareNumber) {
-      if (!this.state.squares[squareNumber]) {
+      let continueGameCondition = !calculateWinner(this.state.squares) && !this.state.squares[squareNumber];
+
+      if (continueGameCondition) {
          let nextSquareState = this.state.squares.slice();
 
          nextSquareState[squareNumber] = this.state.xIsNext ? 'X' : 'O';
@@ -24,11 +47,19 @@ export default class Game extends React.Component {
       }
    }
 
+   getGameStatus() {
+      let winner = calculateWinner(this.state.squares);
+
+      return winner
+         ? `Winner ${winner}`
+         : `Next player: ${this.state.xIsNext ? 'X' : 'O' }`;
+   }
+
    render() {
       return (
          <div className="game">
             <div className="game-boardContainer">
-               <span className="game-status"> Next player: {this.state.xIsNext ? 'X' : 'O' }  </span>
+               <span className="game-status"> { this.getGameStatus() } </span>
                <Board className="game-board" {...this.state} {...this.props} onClick={this.handleSquareClick}/>
             </div>
             <div className="game-info">
