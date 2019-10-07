@@ -15,8 +15,8 @@ function calculateWinner(squares) {
    ];
    for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-         return squares[a];
+      if (squares[a] && squares[a].value && squares[a].value === squares[b].value && squares[a].value === squares[c].value) {
+         return squares[a].value;
       }
    }
    return null;
@@ -26,7 +26,10 @@ export default class Game extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
-         squares: Array(this.props.size ** 2).fill(null),
+         squares: Array.apply(null, Array(this.props.size ** 2) ).map( (_, index) => ({
+            id: index,
+            value: null
+         }) ),
          xIsNext: true
       };
       this.handleSquareClick = this.handleSquareClick.bind(this);
@@ -34,12 +37,12 @@ export default class Game extends React.Component {
    }
 
    handleSquareClick(squareNumber) {
-      let continueGameCondition = !calculateWinner(this.state.squares) && !this.state.squares[squareNumber];
+      let continueGameCondition = !calculateWinner(this.state.squares) && !this.state.squares[squareNumber].value;
 
       if (continueGameCondition) {
          let nextSquareState = this.state.squares.slice();
 
-         nextSquareState[squareNumber] = this.state.xIsNext ? 'X' : 'O';
+         nextSquareState[squareNumber].value = this.state.xIsNext ? 'X' : 'O';
          this.setState({
             squares: nextSquareState,
             xIsNext: !this.state.xIsNext

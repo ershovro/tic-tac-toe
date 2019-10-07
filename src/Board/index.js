@@ -6,7 +6,7 @@ const Board = ({squares = [], size = 2, className = '', onClick = f => f}) =>
    <div style={ {width: `${Square.SQUARE_SIZE * size + 'px'}` } } className={'board ' + className}>
       {
          Array.apply( null, Array(size ** 2) ).map( (item, i) =>
-            <Square key={i} value={squares[i]} onClick={ () => onClick(i)}/>
+            <Square key={squares[i].id} value={squares[i].value} onClick={ () => onClick(i)}/>
          )
       }
    </div>

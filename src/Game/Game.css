@@ -1,4 +1,12 @@
+.game {
+   display: flex;
+   justify-content: center;
+}
+
 .game-board {
    margin-top: 10px;
-   
+}
+
+.game-boardContainer {
+   display: inline-block;
 }

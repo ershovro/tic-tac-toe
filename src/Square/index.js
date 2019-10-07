@@ -2,12 +2,15 @@ import React from 'react'
 import './Square.css'
 
 const Square = ({value = null, onClick = f => f}) =>
-   <div className="square" onClick={onClick}>
+   <div className="square" onClick={onClick} style={{
+      width: `${Square.SQUARE_SIZE + 'px'}`,
+      height: `${Square.SQUARE_SIZE + 'px'}`
+   } }>
       {value}
    </div>
 
 Object.defineProperty(Square,'SQUARE_SIZE', {
-   value: 34,
+   value: 50,
    writable: false
 })
 
