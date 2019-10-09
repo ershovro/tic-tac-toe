@@ -4,7 +4,7 @@ import History from '../History'
 import './Game.css'
 
 function calculateWinner(squares) {
-   const lines = [
+   const winСombination = [
       [0, 1, 2],
       [3, 4, 5],
       [6, 7, 8],
@@ -14,8 +14,8 @@ function calculateWinner(squares) {
       [0, 4, 8],
       [2, 4, 6],
    ];
-   for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
+
+   for (let [a, b, c] of winСombination) {
       if (squares[a] && squares[a].value && squares[a].value === squares[b].value && squares[a].value === squares[c].value) {
          return squares[a].value;
       }
@@ -71,7 +71,7 @@ export default class Game extends React.Component {
             currentMoveNumber: currentMoveNumber + 1 
          });
       }
-   } 
+   }
    
    jumpTo(moveTo) {
       this.setState({
