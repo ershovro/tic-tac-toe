@@ -1,5 +1,5 @@
 import React from 'react'
-import './History.css'
+//import './History.css'
 
 const calculateLiContent = (historyItem = {}) => 
    historyItem.moveNumber ? `Go to move #${historyItem.moveNumber}` : `Go to game start` 
