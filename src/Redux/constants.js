@@ -1,5 +1,5 @@
 const constants = {
-   MOVE: 'MOVE',
+   ADD_MOVE: 'ADD_MOVE',
    JUMP: 'JUMP'   
 }
 

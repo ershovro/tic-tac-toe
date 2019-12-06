@@ -1,9 +1,8 @@
 import C from './constants.js'
 
-export move = (xIsNext, numSquare) => ({
-   type: C.MOVE,
-   numSquare,
-   xIsNext
+export addMove = (clickedSquareNum) => ({
+   type: C.ADD_MOVE,
+   clickedSquareNum
 })
 
 export jump = (to) => ({
