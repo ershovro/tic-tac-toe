@@ -1,11 +1,11 @@
 import C from './constants.js'
 
-export addMove = (clickedSquareNum) => ({
+export const addMove = (clickedSquareId) => ({
    type: C.ADD_MOVE,
-   clickedSquareNum
+   clickedSquareId
 })
 
-export jump = (to) => ({
+export const jump = (id) => ({
    type: C.JUMP,
-   to
+   id
 })

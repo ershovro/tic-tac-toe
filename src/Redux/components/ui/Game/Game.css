@@ -1,0 +1,22 @@
+.game {
+   display: flex;
+   justify-content: center;
+}
+
+.game-board {
+   margin-top: 10px;
+}
+
+.game-boardContainer {
+   display: inline-block;
+}
+
+.game-history {
+   display: flex;
+   flex-direction: column;  
+}
+
+.game-history-title {
+   align-self: flex-end;
+   /*cursor: pointer;*/
+}

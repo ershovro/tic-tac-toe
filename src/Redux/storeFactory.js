@@ -1,4 +1,4 @@
-import {createStore, combineReducers, applyMiddlaware} from 'redux' 
+import {createStore, combineReducers, applyMiddleware} from 'redux' 
 import {moves} from './reducers.js'
 
 const clientLogger = store => next => action => {
@@ -16,10 +16,10 @@ const clientLogger = store => next => action => {
    }
 }
 
-const storeFactory = () => {
-   applyMiddlaware(clientLogger)(createStore)(
-   combineReducers({moves})
+const storeFactory = (initialState = {}) => 
+   applyMiddleware(clientLogger)(createStore)(
+      combineReducers({moves}),
+      initialState
    )
-}
 
 export default storeFactory

@@ -1,0 +1,29 @@
+.square { 
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  
+  background: #fff;
+  
+  outline: 1px solid #999;
+ 
+  font-size: 24px;
+  font-weight: bold;
+  
+  /*box-sizing: border-box;*/
+}
+
+.square_size_s {
+  width: 34px;
+  height: 34px;
+}
+
+.square_size_m {
+  width: 50px;
+  height: 50px;
+}
+
+.square_size_l {
+  width: 60px;
+  height: 60px;
+}

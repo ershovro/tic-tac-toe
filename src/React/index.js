@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import Game from './Game'
+import Game from './React/Game'
 
 window.React = React
 
