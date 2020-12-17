@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from './playground-item.css';
+import styles from './playground-item.module.css';
 
 const PlaygroundItem = ({}) => {
 

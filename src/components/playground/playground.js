@@ -1,13 +1,14 @@
 import React from "react";
-import playgroundItem from './playground-item';
+import PlaygroundItem from './playground-item';
+import styles from './playground.module.css';
 
 const Playground = ({}) => {
 
 
    return (
-      <div>
-         {Array(9).map((_, i) =>
-            <playgroundItem key={i}/>
+      <div className={styles.playground}>
+         {[...Array(9)].map((_, i) =>
+            <PlaygroundItem key={i}/>
          )}
       </div>
    );
