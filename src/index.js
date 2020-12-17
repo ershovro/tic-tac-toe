@@ -1,16 +1,12 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Provider } from 'react-redux' 
-import storeFactory from './Redux/storeFactory.js'
-import { GameContainer } from './Redux/components/containers'
+import { Provider } from 'react-redux'
 
-let store = storeFactory();
+import App from './components/app';
+import './index.css';
 
-window.storeFactory = storeFactory;
-console.log(storeFactory);
+
 render(
-   <Provider store={store}>
-      <GameContainer/>
-   </Provider>,
+   <App />,
    document.getElementById('root')
 );
