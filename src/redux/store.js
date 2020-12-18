@@ -3,6 +3,31 @@ import thunk from 'redux-thunk';
 import logger from './middleware/logger';
 import reducer from './reducer';
 
+const enhancer = applyMiddleware(thunk, logger);
+
+export default createStore(reducer, enhancer);
 
 
-export default createStore(reducer, applyMiddleware(thunk, logger));
+/*
+* {
+*     cells: {
+*
+*
+*     },
+*     activeMarker: 'X',
+*
+*     moves: {
+*     0
+* 1
+* 2
+* 3
+* 4: {
+*     clickedCell: 5,
+*     content: 'X'
+* }
+*     }
+* }
+*
+*
+*
+* */
