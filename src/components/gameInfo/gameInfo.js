@@ -10,11 +10,11 @@ import {
 } from '../../redux/selectors';
 
 const GameInfo = ({ gameIsOver, activeMarker, winner }) => (
-   <div>
-      {
-         gameIsOver ? `Игра окончена, победил ${winner}` : `Ход игрока ${activeMarker}`
-      }
-   </div>
+  <div>
+    {
+       gameIsOver ? `Игра окончена, победил ${winner}` : `Ход игрока ${activeMarker}`
+    }
+  </div>
 );
 
 GameInfo.defaultProps = {
