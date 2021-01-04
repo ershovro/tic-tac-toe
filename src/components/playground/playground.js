@@ -3,35 +3,43 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import PlaygroundItem from './playground-item';
 import styles from './playground.module.css';
-import { cellsDataSelector } from '../../redux/selectors';
+import { playgroundSelector } from '../../redux/selectors';
+import { makeMove } from '../../redux/actions';
 
-const Playground = ({ cells }) => {
+const Playground = ({ playground, onClick }) => {
    return (
       <div className={styles.playground}>
-         {cells.map(({cellNum, marker}) =>
-            <PlaygroundItem
-               key={cellNum}
-               id={cellNum}
-               content={marker}
-            />
+         {playground.map((content, i) =>
+            <div
+               key={i}
+               className={styles.playgroundItem}
+               content={content}
+               onClick={() => onClick(i)}
+            >
+               {content}
+            </div>
          )}
       </div>
    );
 };
 
+Playground.defaultProps = {
+   onClick: f => f
+};
+
 Playground.propTypes = {
-   cells: PropTypes.arrayOf(
-      PropTypes.shape({
-         id: PropTypes.string,
-         marker: PropTypes.string
-      })
-   )
+   playground: PropTypes.arrayOf(
+      PropTypes.string
+   ).isRequired
 };
 
 const mapStateToProps = createStructuredSelector({
-   cells: cellsDataSelector
+   playground: playgroundSelector,
 });
 
-export default connect(mapStateToProps)(Playground);
+const mapDispatchToProps = (dispatch) => ({
+    onClick: (index) => dispatch(makeMove(index))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Playground);

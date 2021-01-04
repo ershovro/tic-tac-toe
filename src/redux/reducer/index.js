@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-//import moves from './moves';
-import cells from './cells';
-import activeMarker from './activeMarker';
+import moves from './moves';
+import activeMove from './activeMove';
+import initGame from './initGame';
 
-const reducer = combineReducers({cells, activeMarker});
+const reducer = combineReducers({moves, activeMove, initGame});
 
 export default reducer;

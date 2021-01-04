@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 import { createStructuredSelector } from 'reselect';
 
 import {
-   activeMarkerSelector,
-   gameIsOverSelector,
+   activePlayerSelector,
+   gameOverSelector,
    winnerSelector
 } from '../../redux/selectors';
 
-const GameInfo = ({ gameIsOver, activeMarker, winner }) => (
+const GameInfo = ({ gameOver, activePlayer, winner }) => (
   <div>
     {
-       gameIsOver ? `Игра окончена, победил ${winner}` : `Ход игрока ${activeMarker}`
+       gameOver ? `Игра окончена, победил ${winner}` : `Ход игрока ${activePlayer}`
     }
   </div>
 );
@@ -27,8 +27,8 @@ GameInfo.propTypes = {
    winner: PropTypes.string,
 };
 const mapStateToProps = createStructuredSelector({
-   activeMarker: activeMarkerSelector,
-   gameIsOver: gameIsOverSelector,
+   activePlayer: activePlayerSelector,
+   gameOver: gameOverSelector,
    winner: winnerSelector
 });
 

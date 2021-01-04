@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
 import styles from './playground-item.module.css';
 import { makeMove } from "../../../redux/actions";
@@ -25,7 +25,7 @@ PlaygroundItem.propTypes = {
 
 
 const mapDispatchToProps = (dispatch, props) => ({
-   onClick: () => dispatch(makeMove(props.id))
+  // onClick: () => dispatch(makeMove(props.id))
 });
 
 export default connect(null, mapDispatchToProps)(PlaygroundItem);

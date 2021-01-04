@@ -1,14 +1,16 @@
 import React from 'react';
 
 import Playground from '../playground';
-import GameInfo from "../gameInfo";
+import GameInfo from '../gameInfo';
+import HistoryMoves from '../historyMoves';
 
 const App = () => {
 
    return (
       <div>
-        <GameInfo />
-        <Playground />
+         <GameInfo />
+         <Playground />
+         <HistoryMoves />
       </div>
    );
 };
