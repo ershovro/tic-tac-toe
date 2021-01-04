@@ -2,8 +2,10 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import styles from './playground.module.css';
+import animationStyles from './playground-animation.module.css';
 import { playgroundSelector } from '../../redux/selectors';
 import { makeMove } from '../../redux/actions';
 
@@ -11,16 +13,15 @@ const Playground = ({ playground, onClick }) => {
    return (
       <div className={styles.playground}>
          {playground.map((content, i) =>
-            <div
+            <span
                key={i}
                className={styles.playgroundItem}
-               content={content}
                onClick={() => onClick(i)}
             >
                {content}
-            </div>
+            </span>
          )}
-      </div>
+     </div>
    );
 };
 

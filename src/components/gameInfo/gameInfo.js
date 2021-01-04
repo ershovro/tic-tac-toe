@@ -8,9 +8,10 @@ import {
    gameOverSelector,
    winnerSelector
 } from '../../redux/selectors';
+import styles from './gameInfo.module.css';
 
 const GameInfo = ({ gameOver, activePlayer, winner }) => (
-  <div>
+  <div className={styles.gameInfo}>
     {
        gameOver ? `Игра окончена, победил ${winner}` : `Ход игрока ${activePlayer}`
     }

@@ -1,0 +1,13 @@
+.game {
+    display: flex;
+    justify-content: center;
+
+    padding: 25px;
+
+    text-align: center;
+}
+
+.game div {
+
+}
+

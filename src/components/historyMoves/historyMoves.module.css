@@ -1,0 +1,7 @@
+.historyMoves {
+    width: 200px;
+}
+
+.move {
+    cursor: pointer;
+}
