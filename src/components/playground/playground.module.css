@@ -1,6 +1,7 @@
 .playground {
     display: flex;
     width: 150px;
+    height: 150px;
     flex-wrap: wrap;
 }
 
