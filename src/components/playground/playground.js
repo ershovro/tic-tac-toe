@@ -1,4 +1,4 @@
-import React from "react";
+import React  from "react";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -11,17 +11,25 @@ import { makeMove } from '../../redux/actions';
 
 const Playground = ({ playground, onClick }) => {
    return (
-      <div className={styles.playground}>
+      <TransitionGroup className={styles.playground} component="div">
          {playground.map((content, i) =>
             <span
                key={i}
                className={styles.playgroundItem}
                onClick={() => onClick(i)}
             >
-               {content}
+               {content ?
+                  <CSSTransition
+                     in={true}
+                     timeout={200}
+                     classNames={animationStyles}>
+                     <span>{content}</span>
+                  </CSSTransition> :
+                 null
+               }
             </span>
          )}
-     </div>
+      </TransitionGroup>
    );
 };
 
